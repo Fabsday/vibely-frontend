@@ -38,11 +38,11 @@ const Dashboard = () => {
         e.preventDefault();
         try {
             if (isEditing) {
-                // UPDATE: Endpoint PUT untuk Edit
-                const response = await axios.put(`https://vibely-backend-d6p6.onrender.com/api/posts/${editId}`, {
-                    title,
-                    content
-                });
+                // UPDATE: Tambahkan headers Authorization untuk KTP
+                const response = await axios.put(`https://vibely-backend-d6p6.onrender.com/api/posts/${editId}`, 
+                    { title, content },
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
                 setMessage(response.data.message);
                 setIsEditing(false);
                 setEditId(null);
@@ -54,9 +54,10 @@ const Dashboard = () => {
                     formData.append('image', image);
                 }
 
-                // UPDATE: Endpoint POST untuk Bikin Baru
+                // UPDATE: Tambahkan headers Authorization bersanding dengan tipe file
                 const response = await axios.post('https://vibely-backend-d6p6.onrender.com/api/posts', formData, {
                     headers: {
+                        Authorization: `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data',
                     },
                 });
@@ -92,8 +93,10 @@ const Dashboard = () => {
     const handleDeletePost = async (id) => {
         if (window.confirm('Apakah kamu yakin ingin menghapus postingan ini?')) {
             try {
-                // UPDATE: Endpoint DELETE untuk Hapus
-                const response = await axios.delete(`https://vibely-backend-d6p6.onrender.com/api/posts/${id}`);
+                // UPDATE: Tambahkan headers Authorization saat mau menghapus
+                const response = await axios.delete(`https://vibely-backend-d6p6.onrender.com/api/posts/${id}`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
                 setMessage(response.data.message);
                 fetchPosts();
                 setTimeout(() => setMessage(''), 3000);
@@ -109,10 +112,8 @@ const Dashboard = () => {
     };
 
     return (
-        // flex-col untuk HP (atas-bawah), md:flex-row untuk Laptop (kiri-kanan)
         <div className="flex flex-col md:flex-row h-screen bg-gray-50 font-sans text-gray-800">
-            
-            {/* SIDEBAR (Jadi Header di HP) */}
+            {/* SIDEBAR */}
             <div className="w-full md:w-64 bg-white border-b md:border-b-0 md:border-r border-gray-200 p-4 md:p-6 flex flex-row md:flex-col justify-between items-center md:items-start shrink-0">
                 <div>
                     <h3 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">Vibely.</h3>
@@ -222,7 +223,6 @@ const Dashboard = () => {
                                             
                                             {post.image && (
                                                 <img 
-                                                    // UPDATE: URL Render untuk Gambar
                                                     src={`https://vibely-backend-d6p6.onrender.com/uploads/${post.image}`} 
                                                     alt="Post visual" 
                                                     className="w-full h-48 md:h-64 object-cover rounded-xl mb-4 border border-gray-100" 
