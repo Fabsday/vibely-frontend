@@ -1,16 +1,52 @@
-# React + Vite
+# Vibely 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack social platform that allows users to share their thoughts, post updates, and interact in a clean, responsive environment. Built with modern web technologies to ensure a seamless and authenticated user experience.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [vibely-frontend-henna.vercel.app](https://vibely-frontend-henna.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
+* **User Authentication:** Secure login and registration system using JWT (JSON Web Tokens).
+* **CRUD Operations:** Users can create, read, update, and delete their own posts.
+* **Media Uploads:** Integrated image uploading functionality for posts.
+* **Responsive Design:** Optimized for both mobile and desktop views.
+* **Protected Routes:** Dashboard and specific actions are protected by authentication middleware.
 
-## React Compiler
+## 🛠️ Tech Stack
+**Frontend:**
+* React.js (Vite)
+* Tailwind CSS (for styling)
+* Axios (for API requests)
+* React Router DOM (for routing)
+* Deployed on **Vercel**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Backend:**
+* Node.js & Express.js
+* JSON Web Token (JWT) for secure auth
+* Multer (for handling multipart/form-data)
+* Deployed on **Render**
 
-## Expanding the ESLint configuration
+**Database:**
+* PostgreSQL (Hosted securely on **Aiven**)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 How to Run Locally
+
+### 1. Clone the repository
+\`\`\`bash
+git clone https://github.com/YourUsername/vibely-frontend.git
+\`\`\`
+
+### 2. Install dependencies
+\`\`\`bash
+npm install
+\`\`\`
+
+### 3. Setup Environment Variables
+Create a `.env` file in the root directory and add your backend API URL:
+\`\`\`env
+VITE_API_URL=http://localhost:5000
+\`\`\`
+
+### 4. Start the development server
+\`\`\`bash
+npm run dev
+\`\`\`

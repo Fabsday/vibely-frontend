@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Feed from './pages/Feed'; // <-- 1. Import komponen Feed
+import Register from "./pages/register";
+import Login from "./pages/login";
+import Dashboard from "./pages/dashboard";
+import Feed from "./pages/feed"; // <-- 1. Import komponen Feed
 
 function App() {
   return (
