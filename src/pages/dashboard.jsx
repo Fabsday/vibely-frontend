@@ -223,9 +223,9 @@ const Dashboard = () => {
                                             {post.image && (
                                                 <img 
                                                     // UPDATE: URL Render untuk Gambar
-                                                    src={`https://vibely-backend-d6p6.onrender.com/uploads/${post.image}`} 
-                                                    alt="Post visual" 
-                                                    className="w-full h-48 md:h-64 object-cover rounded-xl mb-4 border border-gray-100" 
+                                                   src={post.image} 
+                                                   alt="Post visual" 
+                                                   className="w-full h-48 md:h-64 object-cover rounded-xl mb-4 border border-gray-100"
                                                 />
                                             )}
 

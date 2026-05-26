@@ -187,9 +187,9 @@ const Feed = () => {
                                 {post.image && (
                                     <img 
                                         // UPDATE: URL Render untuk Gambar
-                                        src={`https://vibely-backend-d6p6.onrender.com/uploads/${post.image}`} 
+                                        src={post.image} 
                                         alt="Post visual" 
-                                        className="w-full h-auto object-cover border-y border-gray-100 max-h-[600px]"
+                                        className="w-full h-48 md:h-64 object-cover rounded-xl mb-4 border border-gray-100"
                                     />
                                 )}
 
